@@ -1,0 +1,28 @@
+{
+  "name": "flashcard-generator",
+  "version": "1.0.0",
+  "description": "basic and cloze card generator",
+  "main": "flash.js",
+  "scripts": {
+    "test": "node flash"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdlehne/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "cloze",
+    "json"
+  ],
+  "author": "josh lehne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdlehne/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/jdlehne/Flashcard-Generator#readme",
+  "dependencies": {
+    "inquirer": "^3.2.3"
+  }
+}

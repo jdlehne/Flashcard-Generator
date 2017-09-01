@@ -1,12 +1,18 @@
-function ClozeCard(text,cloze) {
-  this.cloze=cloze;
-  this.partial = partial;
-  this.fullText=fullText;
+function ClozeCard(text, cloze) {
+  this.fullText = text;
+  this.cloze = cloze;
+  this.partial = text.replace(cloze, "...");
 }
-
-ClozeCard.prototype.error = function(){
-  console.log("Error no cloze deletion present");
+//----------who fucking knows----------------
+ClozeCard.prototype.error = function() {
+  if (ClozeCard.prototype.fullText === undefined) {
+    console.log("Error no cloze deletion present");
+  }
 };
+
+module.exports = ClozeCard;
+
+
 
 /*
 
@@ -17,8 +23,20 @@ The constructed object should have a fullText property that contains only the fu
 The constructor should throw or log an error when the cloze deletion does not appear in the input text.
 Use prototypes to attach these methods, wherever possible.*/
 
+/*
+// Should throw or log an error because "oops" doesn't appear in "This doesn't work"
+var brokenCloze = new ClozeCard("This doesn't work", "oops");
+
+console.log(brokenCloze.cloze);
+console.log(brokenCloze.partial);
+console.log(brokenCloze.fulltext);
+
+
+///----------------working test-------------------//
+/*
+
 var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
+  "George Washington was the first president of the United States.", "George Washington");
 
 // "George Washington"
 console.log(firstPresidentCloze.cloze);
@@ -27,9 +45,4 @@ console.log(firstPresidentCloze.cloze);
 console.log(firstPresidentCloze.partial);
 
 // "George Washington was the first president of the United States.""
-console.log(firstPresidentCloze.fullText);
-
-// Should throw or log an error because "oops" doesn't appear in "This doesn't work"
-var brokenCloze = new ClozeCard("This doesn't work", "oops");
-
-module.exports = ClozeCard;
+console.log(firstPresidentCloze.fullText);*/

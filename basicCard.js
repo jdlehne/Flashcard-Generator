@@ -5,10 +5,20 @@ function BasicCard(front,back) {
 
 module.exports = BasicCard;
 
-var firstPresident = new BasicCard(
-    "Who was the first president of the United States?", "George Washington");
 
+///----------TEST---------------//
+var basicLib = [];
+var newBasic = new BasicCard(
+    "Who was the first president of the United States?", "George Washington");
+basicLib.push(newBasic);
+var newBasic = new BasicCard(
+    "Who was the last president of the United States?", "Donald Trump");
 // "Who was the first president of the United States?"
-console.log(firstPresident.front);
+/*console.log(newBasic.front);
 // "George Washington"
-console.log(firstPresident.back);
+console.log(newBasic.back);
+
+basicLib.push(newBasic);
+
+console.log(basicLib.length);
+console.log(basicLib[0].front);*/
