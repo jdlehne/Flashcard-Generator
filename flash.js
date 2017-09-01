@@ -1,12 +1,15 @@
 var BasicCard = require('./BasicCard');
 var ClozeCard = require('./ClozeCard');
 var basicLibrary = require('./basLibrary');
+var clozeLibrary = require('./clozLibrary');
 var inquirer = require("inquirer");
 var fs = require("fs");
 
 var count = 0;
 
 function start() {
+
+  console.log("----------  Flash Card Generator Go!  ----------------")
 
   inquirer.prompt([{
       name: 'startMenu',
@@ -19,6 +22,8 @@ function start() {
     }
 
   ]).then(function(answer) {
+
+    console.log("--------------  Let's get started!  -------------------")
 
     switch (answer.startMenu) {
 
@@ -100,6 +105,7 @@ function createCard() {
 
     } else { ///---------------cloze car creator---------------//
       console.log("Begin Cloze Card Construction");
+      console.log("-----------------------------");
       inquirer.prompt([{
           name: "newFull",
           type: "input",
@@ -112,8 +118,14 @@ function createCard() {
         }
 
       ]).then(function(cardData){
+
         console.log(cardData.newFull);
         console.log(cardData.newCloze);
+
+        var userCard = new ClozeCard(cardData.newFull, cardData.newCloze);
+        clozeLibrary.push(userCard);
+        fs.writeFile("clozLibrary.json", JSON.stringify(clozeLibrary, null, 2));
+        console.log("Card stored in clozLibray.json");
       });
     }
 
