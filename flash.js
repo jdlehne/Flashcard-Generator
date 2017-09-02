@@ -3,28 +3,30 @@ var ClozeCard = require('./ClozeCard');
 var basicLibrary = require('./basLibrary');
 var clozeLibrary = require('./clozLibrary');
 var inquirer = require("inquirer");
+var colors = require("colors");
 var fs = require("fs");
 
 var count = 0;
 
 function start() {
-
-  console.log("----------  Flash Card Generator Go!  ----------------")
+  console.log("------------------------------------------------------".cyan);
+  console.log("----------  Flash Card Generator Go!  ----------------".cyan);
+  console.log("------------------------------------------------------".cyan);
 
   inquirer.prompt([{
       name: 'startMenu',
       message: 'Welcome, what would you like to do?',
       type: 'list',
-      choices: ['Create a New Card', 'Basic Card Random', 'Cloze Card Random'],
+      choices: ['Create a New Card', new inquirer.Separator(), 'Basic Card Random',  new inquirer.Separator(), 'Cloze Card Random'],
       filter: function(str) {
         return str.toLowerCase();
       }
     }
 
   ]).then(function(answer) {
-
-    console.log("--------------  Let's get started!  -------------------")
-
+    console.log("-------------------------------------------------------".cyan);
+    console.log("--------------  Let's get started!  -------------------".cyan);
+    console.log("-------------------------------------------------------".cyan);
     switch (answer.startMenu) {
 
       case 'create a new card':
@@ -60,7 +62,9 @@ function createCard() {
     console.log("User chose to create a " + cardType);
 
     if (cardType === "Basic Card") {
-      console.log("------------+++ Basic Card Construction +++------------");
+      console.log("-------------------------------------------------------".yellow);
+      console.log("------------+++ Basic Card Construction +++------------".yellow);
+      console.log("-------------------------------------------------------".yellow);
       inquirer.prompt([{
           name: "newFront",
           type: "input",
@@ -78,7 +82,7 @@ function createCard() {
         var userCard = new BasicCard(cardData.newFront, cardData.newBack);
         basicLibrary.push(userCard);
         fs.writeFile("basLibrary.json", JSON.stringify(basicLibrary, null, 2));
-        console.log("Card stored in basLibray.json");
+        console.log("Card stored in basLibray.json".blue);
 
         inquirer.prompt([{
           name: "again",
@@ -98,8 +102,9 @@ function createCard() {
       });
 
     } else { ///---------------cloze car creator---------------//
-      console.log("Begin Cloze Card Construction");
-      console.log("-----------------------------");
+      console.log("-------------------------------------------------------".yellow);
+      console.log("------------+++ Cloze Card Construction +++------------".yellow);
+      console.log("-------------------------------------------------------".yellow);
       inquirer.prompt([{
           name: "newFull",
           type: "input",
@@ -146,11 +151,11 @@ function basicDraw() {
   ]).then(function(ans) {
 
     if (ans.test === currentCard.back || ans.test === currentCard.back.toLowerCase()) {
-      console.log("correct");
+      console.log("That is correct".yellow);
       count++;
     } else {
       count++;
-      console.log("Incorrect the answer was " + currentCard.back + ".");
+      console.log("Incorrect the answer was ".magenta + currentCard.back.magenta + ".".magenta);
     }
   });
 
@@ -174,11 +179,11 @@ function clozeDraw() {
   ]).then(function(ans) {
 
     if (ans.test === currentCard.cloze || ans.test === currentCard.cloze.toLowerCase()) {
-      console.log("correct");
+      console.log("That is correct".yellow);
       count++;
     } else {
       count++;
-      console.log("Incorrect the answer was " + currentCard.fullText + ".");
+      console.log("Incorrect, the answer was ".magenta + currentCard.cloze.magenta + ".".magenta);
     }
   });
 

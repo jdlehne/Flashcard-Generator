@@ -13,5 +13,15 @@
     "fullText": "In the Mos Eisely Catina Greedo shot first.",
     "cloze": "Greedo",
     "partial": "In the Mos Eisely Catina ... shot first."
+  },
+  {
+    "fullText": "Stevie Wonder wrote 'Songs in the Key of Life'.",
+    "cloze": "Stevie Wonder",
+    "partial": "... wrote 'Songs in the Key of Life'."
+  },
+  {
+    "fullText": "Kurt Vonnegut wrote several books such as 'Sirens of Titan', 'Slaughterhouse Five', and 'Cat's Cradle' to name a few.",
+    "cloze": "Kurt Vonnegut",
+    "partial": "... wrote several books such as 'Sirens of Titan', 'Slaughterhouse Five', and 'Cat's Cradle' to name a few."
   }
 ]
