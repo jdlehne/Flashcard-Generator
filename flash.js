@@ -10,7 +10,9 @@ var count = 0;
 
 function start() {
   console.log("------------------------------------------------------".cyan);
+  console.log("----------  ".cyan + "------------------------".red + "  --------------".cyan);
   console.log("----------  Flash Card Generator Go!  ----------------".cyan);
+  console.log("----------  ".cyan + "------------------------".red + "  --------------".cyan);
   console.log("------------------------------------------------------".cyan);
 
   inquirer.prompt([{
