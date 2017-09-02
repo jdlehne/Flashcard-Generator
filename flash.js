@@ -15,7 +15,7 @@ function start() {
       name: 'startMenu',
       message: 'Welcome, what would you like to do?',
       type: 'list',
-      choices: ['Create', 'Basic', 'Cloze'],
+      choices: ['Create a New Card', 'Basic Card Random', 'Cloze Card Random'],
       filter: function(str) {
         return str.toLowerCase();
       }
@@ -27,16 +27,14 @@ function start() {
 
     switch (answer.startMenu) {
 
-      case 'create':
+      case 'create a new card':
         createCard();
         console.log(answer.startMenu);
         break;
-      case 'basic':
-        //  console.log(answer.startMenu);
+      case 'basic card random':
         basicDraw();
-        //console.log(CardLibrary[0].front);
         break;
-      case 'cloze':
+      case 'cloze card random':
         console.log(answer.startMenu);
         break;
       default:
@@ -76,9 +74,6 @@ function createCard() {
         }
 
       ]).then(function(cardData) {
-        //console.log(cardData);
-        //console.log(cardData.newFront);
-        //console.log(cardData.newBack);
         console.log(cardData.newFront + " : " + cardData.newBack);
 
         var userCard = new BasicCard(cardData.newFront, cardData.newBack);

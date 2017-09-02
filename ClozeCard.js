@@ -9,7 +9,7 @@ function ClozeCard(text, cloze) {
 ClozeCard.prototype.checkPartial = function() {
   var re = new RegExp(this.cloze);
   if (!re.exec(this.fullText)) {
-    console.log("Cloze deletion not found in text input");
+    throw new Error("Cloze deletion not found in text input, please start over");
   }
   return this.fullText.replace(re, "...");
 };
