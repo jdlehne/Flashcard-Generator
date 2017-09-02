@@ -156,7 +156,7 @@ function basicDraw() {
       count++;
     } else {
       count++;
-      console.log("Incorrect the answer was " + randomBas.back + ".");
+      console.log("Incorrect the answer was " + currentCard.back + ".");
     }
   });
 

@@ -3,5 +3,15 @@
     "fullText": "Nana nabooboo",
     "cloze": "nabooboo",
     "partial": "Nana ..."
+  },
+  {
+    "fullText": "I'm a stupid",
+    "cloze": "people",
+    "partial": "I'm a stupid"
+  },
+  {
+    "fullText": "I am a potato",
+    "cloze": "poop",
+    "partial": "I am a potato"
   }
 ]
