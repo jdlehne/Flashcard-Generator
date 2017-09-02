@@ -29,13 +29,12 @@ function start() {
 
       case 'create a new card':
         createCard();
-        console.log(answer.startMenu);
         break;
       case 'basic card random':
         basicDraw();
         break;
       case 'cloze card random':
-        console.log(answer.startMenu);
+        clozeDraw();
         break;
       default:
         console.log("Not a valid option");
@@ -61,7 +60,7 @@ function createCard() {
     console.log("User chose to create a " + cardType);
 
     if (cardType === "Basic Card") {
-      console.log("Begin Basic Card Construction");
+      console.log("------------+++ Basic Card Construction +++------------");
       inquirer.prompt([{
           name: "newFront",
           type: "input",
@@ -83,7 +82,7 @@ function createCard() {
 
         inquirer.prompt([{
           name: "again",
-          message: "would you like to make another basic card?",
+          message: "would you like to make another card?",
           type: "confirm",
         }]).then(function(res) {
           console.log(res);
@@ -152,6 +151,34 @@ function basicDraw() {
     } else {
       count++;
       console.log("Incorrect the answer was " + currentCard.back + ".");
+    }
+  });
+
+}
+
+function clozeDraw() {
+
+  var randomCloz = Math.floor(Math.random() * (clozeLibrary.length - 1));
+  var currentCard = clozeLibrary[randomCloz];
+
+  inquirer.prompt([
+
+    {
+      name: "test",
+      message: currentCard.partial,
+      type: "input",
+      validate: function validateInput(ans) {
+        return ans !== '';
+      }
+    }
+  ]).then(function(ans) {
+
+    if (ans.test === currentCard.cloze || ans.test === currentCard.cloze.toLowerCase()) {
+      console.log("correct");
+      count++;
+    } else {
+      count++;
+      console.log("Incorrect the answer was " + currentCard.fullText + ".");
     }
   });
 

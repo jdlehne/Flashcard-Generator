@@ -1,3 +1,17 @@
 [
-  
+  {
+    "fullText": "George Washington was the first president of the United States.",
+    "cloze": "George Washington",
+    "partial": "... was the first president of the United States."
+  },
+  {
+    "fullText": "Kurt Russell played Jack Burton in Big Trouble in Little China.",
+    "cloze": "Kurt Russell",
+    "partial": "... played Jack Burton in Big Trouble in Little China."
+  },
+  {
+    "fullText": "In the Mos Eisely Catina Greedo shot first.",
+    "cloze": "Greedo",
+    "partial": "In the Mos Eisely Catina ... shot first."
+  }
 ]
